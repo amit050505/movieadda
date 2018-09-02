@@ -1,0 +1,19 @@
+.navbar-brand
+{
+    cursor: pointer;
+    color: red;
+    /* background-color: red; */
+}
+
+.navbar-nav>li>a:hover, .navbar-nav>li>a:focus {    
+    font-weight: bold;
+    background-color: transparent;
+}
+.navbar-nav>li>a:link, .navbar-nav>li>a:visited {
+    color:white;
+}
+
+.navbar, .navbar-inverse{
+    border-radius: 0px;
+    margin-bottom:0px;
+}

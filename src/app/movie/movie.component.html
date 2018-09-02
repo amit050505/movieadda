@@ -1,0 +1,124 @@
+
+<div class="row">
+    <div class="col-md-12" style="font-weight: bold;">
+      <div class="searchSection" style="margin-top:10px;">
+        
+            <form class="example" style="margin:auto;max-width:300px">
+              <input type="text" placeholder="Search.." name="search2" [(ngModel)]="searchText">
+              <button type="button" disabled><i class="fa fa-search"></i></button>
+            </form>
+        
+      </div>
+    </div>
+</div>
+
+<div class="row">
+  <div *ngFor="let mov of movies | movieFilter:searchText">          
+    <app-mcards [movie]="mov" (outputMovie)="getMovieDetails($event)"></app-mcards>
+  </div>
+</div>
+
+<div *ngIf="loading" class="k-i-loading" ></div>
+
+<kendo-dialog title="Movie Details" *ngIf="movieDetailsDialog"  [minWidth]="250" [width]="900"  [height]="520" (close)="closeDialog()">    
+    <div>                      
+           <div class="row" class="movieName">
+              <div class="col-md-12" style="font-weight: bold">                
+                <h2>
+                    {{selectedMovieForDetails.movie_title}}  <span class="year">( {{selectedMovieForDetails.title_year}} )</span>
+                </h2>
+                
+              </div>
+           </div>                    
+         
+
+           <div class="row" class="releaseYear">          
+              <div class="col-md-12" style="font-weight: bold">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <hr />
+              </div>
+              <!-- Rating: {{selectedMovieForDetails.content_rating}}     -->
+              
+           </div>
+        
+
+           <div class="row" class="genres">          
+              <div class="col-md-12" style="font-weight: bold">                
+                <div>
+                  <i>Genre:</i>
+                  <span *ngFor="let k of getsplits(selectedMovieForDetails.genres);  let i = index" class="badge gen">                    
+                      <i>{{k}}</i>
+                  </span>
+                </div>                
+              </div>       
+           </div>
+
+
+           <div class="row" class="language">          
+              <div class="col-md-12" style="font-weight: bold">                
+                Languages available: {{selectedMovieForDetails.language}} ( {{selectedMovieForDetails.country}} )   
+              </div>       
+           </div>
+
+           <div class="row" class="director">          
+              <div class="col-md-12" style="font-weight: bold">                
+                <div>
+                  Director: {{selectedMovieForDetails.director_name}}
+                </div>                
+              </div>       
+           </div>
+
+
+           <div class="row" class="cast">          
+              <div class="col-md-12" style="font-weight: bold">                
+                <div>
+                  Cast: {{selectedMovieForDetails.actor_1_name}}  |  {{selectedMovieForDetails.actor_2_name}}
+                </div>                
+              </div>       
+           </div>
+
+
+           <div class="row" class="budget">          
+              <div class="col-md-12" style="font-weight: bold">                
+                <div>
+                  Total Budget: {{selectedMovieForDetails.budget}}
+                </div>                
+              </div>       
+           </div>
+
+           
+           <div class="row" class="keywords">          
+              <div class="col-md-12" style="font-weight: bold">                
+                <div>
+                  <i>#Tags:</i>
+                  <span *ngFor="let k of getsplits(selectedMovieForDetails.plot_keywords);  let i = index" class="badge key">                    
+                      <i>{{k}}</i>
+                  </span>
+                </div>                
+              </div>       
+           </div>
+
+           <div class="row" class="keywords">          
+              <div class="col-md-12" style="font-weight: bold">                
+                  <hr />
+                <div>
+                  <i>Also check out on:  </i>
+                  <a href="{{selectedMovieForDetails.movie_imdb_link}}" target="_blank">
+                      <img class="imdblogo" src="https://m.media-amazon.com/images/G/01/imdb/images/navbar/imdbpro_logo_nb-3000473826._CB470041611_.png" />
+                  </a>
+                </div> 
+                               
+              </div>       
+           </div>           
+     </div>
+
+
+    <kendo-dialog-actions>        
+        <button kendoButton primary="true" (click)="closeDialog()">Close</button>
+    </kendo-dialog-actions>
+
+</kendo-dialog>

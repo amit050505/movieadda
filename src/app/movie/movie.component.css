@@ -1,0 +1,94 @@
+
+body {
+    min-height: 3000px;
+    padding-top: 70px;
+    
+  }
+  
+  .thumbnail {
+      position: relative;
+      padding: 0px;
+      margin-bottom: 20px;
+  }
+  
+  .thumbnail img {
+      width: 100%;
+  }
+
+  .movieName
+  {
+      color:red;
+  }
+  .year
+  {
+      color:grey;
+  }
+  .fa-star
+  {
+    font-size: 35px;
+    color: red
+    
+  }
+  .language, .director, .cast, .budget, .keywords, .genres
+  {
+      font-size: 14px;
+      color: black;
+      line-height: 30px;
+      font-family: lucida sans;
+      
+  }
+  .key{
+      margin: 0px 5px;
+      background-color: black;
+      color:white;
+  }
+  .gen{
+    margin: 0px 5px;
+    background-color: black;
+    color:white;
+  }
+  
+
+  .imdblogo {
+    background-color:black;
+    padding:4px;
+    border-radius:2px;
+  }
+  .searchSection
+  {      
+      margin-bottom: 10px;
+      float:right;
+      /* width:300px; */
+  }
+  
+form.example input[type=text] {
+    padding: 5px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+}
+
+form.example button {
+    float: left;
+    width: 20%;
+    padding: 5px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+}
+
+form.example button:hover {
+    background: #0b7dda;
+}
+
+form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
