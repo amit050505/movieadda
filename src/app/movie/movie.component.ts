@@ -22,15 +22,16 @@ export class MovieComponent implements OnInit {
   }
   
   getAllMovies() { 
-    this.loading=true;
-      this.movieServ.getAllMovies().subscribe(
-        data=>{
-          this.movies= data;
-          // this.movies= data.slice(0, 5);
-          this.loading=false;
-          console.log(this.movies.length);
-        }
-      )
+    //  this.loading=true;
+    //   this.movieServ.getAllMovies().subscribe(
+    //     data=>{
+    //       this.movies= data;          
+    //       this.loading=false;
+    //       console.log(this.movies.length);
+    //     }
+    //   )
+    this.movies=this.movieServ.getAllMovies();
+
   }
 
   getMovieDetails(movie)
