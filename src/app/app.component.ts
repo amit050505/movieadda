@@ -12,6 +12,9 @@ import {
   DataStateChangeEvent,
   PageChangeEvent
 } from '@progress/kendo-angular-grid';
+import { setTheme } from 'ngx-bootstrap/utils';
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -22,6 +25,7 @@ export class AppComponent {
   public activeItems=[];
 
   constructor() {
+    setTheme('bs3'); // or 'bs4'
   }
 
 }

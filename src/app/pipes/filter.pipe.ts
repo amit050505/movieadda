@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class MovieFilterPipe implements PipeTransform {
   transform(items: any[], filter: any): any[] {
-    console.log("in filter");
+    
     if (!items || !filter) {
       return items;
     }

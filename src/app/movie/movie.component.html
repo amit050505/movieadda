@@ -1,8 +1,7 @@
 
-<div class="row">
+<div class="row" id="mainsection">
     <div class="col-md-12" style="font-weight: bold;">
-      <div class="searchSection" style="margin-top:10px;">
-        
+      <div class="searchSection" style="margin-top:10px;">          
             <form class="example" style="margin:auto;max-width:300px">
               <input type="text" placeholder="Search.." name="search2" [(ngModel)]="searchText">
               <button type="button" disabled><i class="fa fa-search"></i></button>
@@ -11,12 +10,26 @@
       </div>
     </div>
 </div>
-
-<div class="row">
-  <div *ngFor="let mov of movies | movieFilter:searchText">          
-    <app-mcards [movie]="mov" (outputMovie)="getMovieDetails($event)"></app-mcards>
+<div id="movielibBody">
+  <div class="row">
+    <div *ngFor="let mov of returnedArray | movieFilter:searchText">          
+      <app-mcards [movie]="mov" (outputMovie)="getMovieDetails($event)"></app-mcards>
+    </div>
   </div>
 </div>
+<div class="row">
+    <div class="col-md-12" style="font-weight: bold">                
+      <a #fileInput scrollTo scrollTargetSelector="#mainsection">
+        <i class="fa fa-angle-up" style="float: right; font-size:20px; background-color:#2aabd2; color:white; padding:0px 10px; cursor:pointer"></i> 
+      </a>
+    </div>
+</div>
+
+  <div class="row">
+      <div class="col-xs-12 col-12" style="text-align:center">
+        <pagination [totalItems]="totalItems"  [maxSize]="maxSize"  (pageChanged)="pageChanged($event)" [(ngModel)]="currentPage"></pagination>
+      </div>
+  </div>     
 
 <div *ngIf="loading" class="k-i-loading" ></div>
 
@@ -41,8 +54,7 @@
                 <i class="fa fa-star" aria-hidden="true"></i>
                 <hr />
               </div>
-              <!-- Rating: {{selectedMovieForDetails.content_rating}}     -->
-              
+              <!-- Rating: {{selectedMovieForDetails.content_rating}}     -->              
            </div>
         
 
@@ -50,7 +62,7 @@
               <div class="col-md-12" style="font-weight: bold">                
                 <div>
                   <i>Genre:</i>
-                  <span *ngFor="let k of getsplits(selectedMovieForDetails.genres);  let i = index" class="badge gen">                    
+                  <span *ngFor="let k of getsplits(selectedMovieForDetails.genres) | slice:0:3;  let i = index" class="badge gen">                    
                       <i>{{k}}</i>
                   </span>
                 </div>                
@@ -95,7 +107,7 @@
               <div class="col-md-12" style="font-weight: bold">                
                 <div>
                   <i>#Tags:</i>
-                  <span *ngFor="let k of getsplits(selectedMovieForDetails.plot_keywords);  let i = index" class="badge key">                    
+                  <span *ngFor="let k of getsplits(selectedMovieForDetails.plot_keywords) | slice:0:3; let i = index" class="badge key">                    
                       <i>{{k}}</i>
                   </span>
                 </div>                

@@ -17,7 +17,9 @@ export class MovieService {
    getAllMovies()
    {
     // return this._http.get<any>("https://starlord.hackerearth.com/movieslisting");
+   
     // return this._http.get<any>("http://localhost:3000/data");
+
     this.mData=moviedata;
     return this.mData;
     

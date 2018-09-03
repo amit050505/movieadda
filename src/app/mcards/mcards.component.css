@@ -6,5 +6,21 @@
 {
     color:grey;
 }
+.mcard:hover .thumbnail
+{
+    opacity: 0.7;
+    border:solid 1px #716F6F;
+    cursor: pointer;
+}
 
-
+.gen{
+    margin: 0px 5px;
+    background-color: black;
+    color:white;
+  }
+  .rating
+  {
+    margin: 0px 5px;
+    background-color: red;
+    color:white;
+  }

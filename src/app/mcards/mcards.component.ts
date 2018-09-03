@@ -22,5 +22,10 @@ public outputMovie = new EventEmitter();
     this.outputMovie.emit(movie);
     
   }
+  getsplits(item)
+  {
+     return item.split("|");
+  }
+
 
 }
